@@ -59,3 +59,26 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 @media(max-width:450px){
   .brand-mark{width:42px;height:42px;flex-basis:42px;}
 }
+
+/* Full ThemePlanner wordmark in header */
+.brand-logo{
+  width:150px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:transparent;
+}
+.brand-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+.landing-location{
+  margin-top:55px;
+  margin-bottom:0;
+}
+@media(max-width:450px){
+  .brand-logo{width:125px;height:50px;}
+}
