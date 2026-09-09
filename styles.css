@@ -8,7 +8,7 @@
 button,input,textarea{font:inherit}button{cursor:pointer}
 .app-shell{max-width:1440px;min-height:100vh;margin:auto;background:var(--cream);position:relative;overflow:hidden}
 .topbar{height:82px;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,.06);background:rgba(255,250,244,.85);backdrop-filter:blur(15px);position:sticky;top:0;z-index:20}
-.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:"Playfair Display";font-weight:700}
+.brand{cursor:pointer;display:flex;align-items:center;gap:12px}.brand-mark{width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:"Playfair Display";font-weight:700}
 .brand strong{display:block;font-family:"Playfair Display";font-size:22px}.brand span{display:block;font-size:9px;letter-spacing:2px;margin-top:3px}.location{font-size:12px}.location span{color:#c98989}
 .page{display:none;min-height:calc(100vh - 150px)}.page.active{display:block}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:80px 8% 50px;min-height:590px;align-items:center}

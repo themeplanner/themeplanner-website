@@ -21,6 +21,8 @@ function go(pageId){
 }
 navItems.forEach(el => el.addEventListener("click",()=>go(el.dataset.go)));
 
+document.querySelector(".brand[data-go='home']")?.addEventListener("keydown",(e)=>{ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); e.currentTarget.click(); }});
+
 function collectForm(){
   const fd = new FormData(form);
   const data = {};
