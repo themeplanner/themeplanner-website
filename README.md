@@ -34,3 +34,7 @@ Replace the submit handler in `app.js` with your API, Google Sheets, Airtable, N
 The inquiry form is configured to submit directly to Web3Forms using the Web3Forms API.
 Before deploying, replace `YOUR_WEB3FORMS_ACCESS_KEY` in `app.js` with the access key
 generated for your receiving email address at Web3Forms.
+
+
+### Form validation
+The digital-invite function count is checked against the selected functions. 1–5 must match exactly; 6+ requires at least 6 selected functions. A mismatch shows a popup and blocks Next.

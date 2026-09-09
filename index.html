@@ -79,7 +79,26 @@
               <h2>Let’s start with the basics.</h2>
               <p class="muted">A few details help us understand your celebration.</p>
               <div class="fields">
-                <label>Wedding date<input type="date" name="weddingDate"></label>
+                <label>Wedding date
+                  <div class="custom-date-picker" id="customDatePicker">
+                    <input id="weddingDateDisplay" type="text" placeholder="Select wedding date" readonly autocomplete="off" aria-label="Wedding date">
+                    <input type="hidden" name="weddingDate" id="weddingDateValue">
+                    <div class="calendar-popover" id="calendarPopover" hidden>
+                      <div class="calendar-head">
+                        <button type="button" class="calendar-nav" id="calendarPrev" aria-label="Previous month">‹</button>
+                        <strong id="calendarMonth"></strong>
+                        <button type="button" class="calendar-nav" id="calendarNext" aria-label="Next month">›</button>
+                      </div>
+                      <div class="calendar-weekdays">
+                        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                      </div>
+                      <div class="calendar-days" id="calendarDays"></div>
+                      <div class="calendar-footer">
+                        <button type="button" class="calendar-done" id="calendarDone">Done</button>
+                      </div>
+                    </div>
+                  </div>
+                </label>
                 <fieldset>
                   <legend>When do you need everything ready?</legend>
                   <div class="choice-grid">
@@ -293,7 +312,6 @@
             <span class="eyebrow">Inquiry received</span>
             <h2>Thank you — let’s make it beautiful.</h2>
             <p>Your inquiry has been sent successfully. We’ll be in touch with you soon.</p>
-            <button class="text-btn" data-go="home">Back to home</button>
           </div>
         </div>
       </section>

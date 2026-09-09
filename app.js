@@ -23,6 +23,100 @@ navItems.forEach(el => el.addEventListener("click",()=>go(el.dataset.go)));
 
 document.querySelector(".brand[data-go='home']")?.addEventListener("keydown",(e)=>{ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); e.currentTarget.click(); }});
 
+
+/* Custom wedding-date calendar (no native Reset button) */
+const calendarPicker = document.getElementById("customDatePicker");
+const calendarDisplay = document.getElementById("weddingDateDisplay");
+const calendarValue = document.getElementById("weddingDateValue");
+const calendarPopover = document.getElementById("calendarPopover");
+const calendarMonth = document.getElementById("calendarMonth");
+const calendarDays = document.getElementById("calendarDays");
+const calendarPrev = document.getElementById("calendarPrev");
+const calendarNext = document.getElementById("calendarNext");
+const calendarDone = document.getElementById("calendarDone");
+
+let calendarView = new Date();
+calendarView.setDate(1);
+
+function pad2(n){ return String(n).padStart(2,"0"); }
+
+function formatDateForDisplay(iso){
+  if(!iso) return "";
+  const [y,m,d] = iso.split("-").map(Number);
+  if(!y || !m || !d) return "";
+  return new Date(y,m-1,d).toLocaleDateString(undefined,{
+    month:"long", day:"numeric", year:"numeric"
+  });
+}
+
+function renderCalendar(){
+  const year = calendarView.getFullYear();
+  const month = calendarView.getMonth();
+  calendarMonth.textContent = calendarView.toLocaleDateString(undefined,{month:"long",year:"numeric"});
+  calendarDays.innerHTML = "";
+
+  const firstDay = new Date(year,month,1).getDay();
+  const daysInMonth = new Date(year,month+1,0).getDate();
+
+  for(let i=0;i<firstDay;i++){
+    const empty = document.createElement("button");
+    empty.type = "button";
+    empty.className = "empty";
+    empty.tabIndex = -1;
+    calendarDays.appendChild(empty);
+  }
+
+  const today = new Date();
+  const todayIso = `${today.getFullYear()}-${pad2(today.getMonth()+1)}-${pad2(today.getDate())}`;
+
+  for(let day=1;day<=daysInMonth;day++){
+    const iso = `${year}-${pad2(month+1)}-${pad2(day)}`;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = day;
+    btn.dataset.date = iso;
+    if(iso === calendarValue.value) btn.classList.add("selected");
+    if(iso === todayIso) btn.classList.add("today");
+
+    btn.addEventListener("click",()=>{
+      calendarValue.value = iso;
+      calendarDisplay.value = formatDateForDisplay(iso);
+      renderCalendar();
+    });
+    calendarDays.appendChild(btn);
+  }
+}
+
+function openCalendar(){
+  if(calendarValue.value){
+    const [y,m] = calendarValue.value.split("-").map(Number);
+    if(y && m) calendarView = new Date(y,m-1,1);
+  }
+  renderCalendar();
+  calendarPopover.hidden = false;
+}
+
+function closeCalendar(){
+  calendarPopover.hidden = true;
+}
+
+calendarDisplay.addEventListener("click",()=>{
+  calendarPopover.hidden ? openCalendar() : closeCalendar();
+});
+calendarPrev.addEventListener("click",()=>{
+  calendarView.setMonth(calendarView.getMonth()-1);
+  renderCalendar();
+});
+calendarNext.addEventListener("click",()=>{
+  calendarView.setMonth(calendarView.getMonth()+1);
+  renderCalendar();
+});
+calendarDone.addEventListener("click",closeCalendar);
+
+document.addEventListener("click",(e)=>{
+  if(calendarPicker && !calendarPicker.contains(e.target)) closeCalendar();
+});
+
 function collectForm(){
   const fd = new FormData(form);
   const data = {};
@@ -44,6 +138,13 @@ function restoreForm(){
       else c.value = value;
     });
   });
+}
+
+
+function syncWeddingDateDisplay(){
+  if(calendarDisplay && calendarValue){
+    calendarDisplay.value = formatDateForDisplay(calendarValue.value);
+  }
 }
 
 function renderStep(){
@@ -136,15 +237,6 @@ form.addEventListener("submit", async (e)=>{
   }
 });
 
-document.getElementById("downloadBtn").addEventListener("click",()=>{
-  const data = JSON.parse(localStorage.getItem("themeplanner_draft") || "{}");
-  const blob = new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "themeplanner-wedding-inquiry.json";
-  a.click();
-  URL.revokeObjectURL(a.href);
-});
 
 document.querySelectorAll("[data-go='home']").forEach(el=>el.addEventListener("click",()=>{
   form.style.display = "";
@@ -155,6 +247,10 @@ document.querySelectorAll("[data-go='home']").forEach(el=>el.addEventListener("c
   renderStep();
 }));
 
+// Always show the landing page after a full browser refresh.
+currentStep = 1;
+localStorage.setItem("themeplanner_step", 1);
 restoreForm();
+syncWeddingDateDisplay();
 renderStep();
 go("home");
