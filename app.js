@@ -84,7 +84,7 @@ backBtn.addEventListener("click",()=>{
   }
 });
 
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "cecaa0cc-f395-4b54-8931-244b30cd5092";
 
 form.addEventListener("submit", async (e)=>{
   e.preventDefault();
