@@ -54,34 +54,25 @@ button,input,textarea{font:inherit}button{cursor:pointer}
   margin-bottom:0;
 }
 
-/* Final header: TP monogram from supplied logo + elegant ThemePlanner wordmark */
+/* Fixed TP monogram sizing */
 .brand-mark{
   width:48px;
   height:48px;
+  padding:3px;
+  box-sizing:border-box;
   display:grid;
   place-items:center;
-  background:transparent;
   overflow:hidden;
+  background:transparent;
   flex:0 0 48px;
 }
 .brand-mark img{
   width:100%;
   height:100%;
   object-fit:contain;
+  object-position:center;
   display:block;
 }
-.brand strong{
-  font-family:"Bodoni Moda","Playfair Display",serif;
-  font-weight:500;
-  letter-spacing:-0.9px;
-  font-size:25px;
-  line-height:1;
-}
-.brand span{
-  font-family:"DM Sans",sans-serif;
-  letter-spacing:1.4px;
-}
 @media(max-width:450px){
-  .brand-mark{width:42px;height:42px;flex-basis:42px;}
-  .brand strong{font-size:22px;}
+  .brand-mark{width:42px;height:42px;flex-basis:42px;padding:2px;}
 }
