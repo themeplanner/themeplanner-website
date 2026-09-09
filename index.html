@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThemePlanner — Client Inquiry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">TP</div>
+        <div>
+          <strong>ThemePlanner</strong>
+          <span>PLAN • PERSONALISE • CELEBRATE</span>
+        </div>
+      </div>
+      <div class="location">Delhi | Gurgaon | Ghaziabad <span>♥</span></div>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section id="home" class="page active">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Good Morning,</p>
+            <h1>Let’s Plan Something<br>Beautiful Today! <i>♡</i></h1>
+            <p class="script">Moments made meaningful.</p>
+            <p class="body-copy">
+              From bespoke e-invites to thoughtful wedding stationery,
+              we create beautiful details that feel completely yours.
+            </p>
+            <button class="primary-btn" data-go="inquiry">Get Started <span>→</span></button>
+          </div>
+
+          <div class="hero-art">
+            <div class="paper-card main-card">
+              <div class="mini-flower">✿</div>
+              <div class="card-script">You’re<br>Invited</div>
+              <div class="bow">🎀</div>
+            </div>
+            <div class="floating-card pink">Good<br>People<br>Great<br>Events ♡</div>
+            <div class="floating-card cream">PLAN<br>PEOPLE<br>PARTIES<br>MEMORIES</div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Explore</span>
+            <h2>Beautiful things we create</h2>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-card blush" data-go="inquiry">
+            <span class="icon">✉</span><strong>Bespoke<br>E-Invites</strong>
+          </button>
+          <button class="category-card sage" data-go="inquiry">
+            <span class="icon">♧</span><strong>Caricatures<br>Illustrations</strong>
+          </button>
+          <button class="category-card sand" data-go="inquiry">
+            <span class="icon">▣</span><strong>Event<br>Stationery</strong>
+          </button>
+          <button class="category-card lavender" data-go="inquiry">
+            <span class="icon">♧</span><strong>Gifts<br>& Bags</strong>
+          </button>
+        </div>
+
+        <div class="feature-banner">
+          <div>
+            <p class="script">Beautiful Events.<br>Happier People.</p>
+            <span>Thoughtful details, designed around your story.</span>
+          </div>
+          <button class="round-arrow" data-go="inquiry">→</button>
+        </div>
+
+        <div class="occasions">
+          <div class="section-heading compact">
+            <h2>Occasions We Love</h2><button class="text-btn" data-go="inquiry">See all</button>
+          </div>
+          <div class="occasion-row">
+            <div><span>◯</span><small>Weddings</small></div>
+            <div><span>♨</span><small>Birthdays</small></div>
+            <div><span>◎</span><small>Pre-Wedding</small></div>
+            <div><span>▣</span><small>Corporate</small></div>
+            <div><span>•••</span><small>More</small></div>
+          </div>
+        </div>
+
+        <div class="location-card">
+          <span>♥</span>
+          <div><strong>Delhi | Gurgaon | Ghaziabad</strong><p>Designing for your most special moments — close to home.</p></div>
+          <div class="landmark">⌂</div>
+        </div>
+      </section>
+
+      <!-- INQUIRY -->
+      <section id="inquiry" class="page">
+        <div class="inquiry-wrap">
+          <div class="inquiry-intro">
+            <span class="eyebrow">Client Inquiry</span>
+            <h1>LET’S MAKE SOMETHING<br><em>BEAUTIFUL.</em></h1>
+            <p>Tell us a little about your wedding and what you have in mind. We’ll use your answers to understand your celebration and create the right design direction for you.</p>
+            <div class="time-pill">◷ Takes approximately 3–4 minutes</div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-top"><span id="stepLabel">STEP 1 OF 9</span><span id="progressPct">11%</span></div>
+            <div class="progress-track"><div id="progressBar"></div></div>
+          </div>
+
+          <form id="inquiryForm">
+
+            <!-- 1 -->
+            <div class="form-step active" data-step="1">
+              <span class="step-kicker">01 / YOUR WEDDING</span>
+              <h2>Let’s start with the basics.</h2>
+              <p class="muted">A few details help us understand your celebration.</p>
+              <div class="fields">
+                <label>Wedding date<input type="date" name="weddingDate"></label>
+                <fieldset>
+                  <legend>When do you need everything ready?</legend>
+                  <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="readyBy" value="ASAP"><span>ASAP</span></label>
+                    <label class="choice"><input type="radio" name="readyBy" value="Within 2 weeks"><span>Within 2 weeks</span></label>
+                    <label class="choice"><input type="radio" name="readyBy" value="Within a month"><span>Within a month</span></label>
+                    <label class="choice"><input type="radio" name="readyBy" value="1–3 months"><span>1–3 months</span></label>
+                    <label class="choice"><input type="radio" name="readyBy" value="3–6 months"><span>3–6 months</span></label>
+                    <label class="choice"><input type="radio" name="readyBy" value="6+ months"><span>6+ months</span></label>
+                  </div>
+                </fieldset>
+                <div class="two-col">
+                  <label>Country<input name="country" placeholder="India"></label>
+                  <label>City / destination<input name="city" placeholder="e.g. Udaipur"></label>
+                </div>
+                <label>Venue / location<input name="venue" placeholder="Wedding venue or city"></label>
+              </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="form-step" data-step="2">
+              <span class="step-kicker">02 / WHAT ARE WE CREATING?</span>
+              <h2>Choose everything you’re interested in.</h2>
+              <div class="check-list">
+                <label><input type="checkbox" name="creating" value="Wedding Logo"><span>WEDDING LOGO</span><b>＋</b></label>
+                <label><input type="checkbox" name="creating" value="Save the Date"><span>SAVE THE DATE</span><b>＋</b></label>
+                <label><input type="checkbox" name="creating" value="Digital Invite"><span>DIGITAL INVITE</span><b>＋</b></label>
+                <label><input type="checkbox" name="creating" value="Wardrobe Planner"><span>WARDROBE PLANNER</span><b>＋</b></label>
+                <label><input type="checkbox" name="creating" value="Wedding Stationery"><span>WEDDING STATIONERY</span><b>＋</b></label>
+                <label><input type="checkbox" name="creating" value="Something Else"><span>SOMETHING ELSE</span><b>＋</b></label>
+              </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="form-step" data-step="3">
+              <span class="step-kicker">03 / YOUR DIGITAL INVITE</span>
+              <h2>Let’s map out your functions.</h2>
+              <fieldset>
+                <legend>How many functions will be included?</legend>
+                <div class="pill-grid">
+                  <label><input type="radio" name="functionCount" value="1"><span>1</span></label>
+                  <label><input type="radio" name="functionCount" value="2"><span>2</span></label>
+                  <label><input type="radio" name="functionCount" value="3"><span>3</span></label>
+                  <label><input type="radio" name="functionCount" value="4"><span>4</span></label>
+                  <label><input type="radio" name="functionCount" value="5"><span>5</span></label>
+                  <label><input type="radio" name="functionCount" value="6+"><span>6+</span></label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Which functions?</legend>
+                <div class="function-grid">
+                  <label><input type="checkbox" name="functions" value="Engagement"><span>Engagement</span></label>
+                  <label><input type="checkbox" name="functions" value="Mehendi"><span>Mehendi</span></label>
+                  <label><input type="checkbox" name="functions" value="Haldi"><span>Haldi</span></label>
+                  <label><input type="checkbox" name="functions" value="Sangeet"><span>Sangeet</span></label>
+                  <label><input type="checkbox" name="functions" value="Cocktail"><span>Cocktail</span></label>
+                  <label><input type="checkbox" name="functions" value="Wedding"><span>Wedding</span></label>
+                  <label><input type="checkbox" name="functions" value="Reception"><span>Reception</span></label>
+                  <label><input type="checkbox" name="functions" value="Anand Karaj"><span>Anand Karaj</span></label>
+                  <label><input type="checkbox" name="functions" value="Other"><span>Other</span></label>
+                </div>
+              </fieldset>
+              <label>Other function<input name="otherFunction" placeholder="Tell us the function name"></label>
+            </div>
+
+            <!-- 4 -->
+            <div class="form-step" data-step="4">
+              <span class="step-kicker">04 / STATIONERY SUITE</span>
+              <h2>Which pieces would you like us to create?</h2>
+              <p class="muted">Select as many as you need.</p>
+              <div class="stationery-sections">
+                <div><h3>BEFORE THE WEDDING</h3>
+                  <label><input type="checkbox" name="pieces" value="Save the Date"><span>Save the Date</span></label>
+                  <label><input type="checkbox" name="pieces" value="Wedding Invitation"><span>Wedding Invitation</span></label>
+                  <label><input type="checkbox" name="pieces" value="Welcome Letter"><span>Welcome Letter</span></label>
+                </div>
+                <div><h3>AT THE VENUE</h3>
+                  <label><input type="checkbox" name="pieces" value="Welcome Signage"><span>Welcome Signages</span></label>
+                  <label><input type="checkbox" name="pieces" value="Car Stickers"><span>Car Stickers</span></label>
+                  <label><input type="checkbox" name="pieces" value="Luggage Tags"><span>Luggage Tags</span></label>
+                  <label><input type="checkbox" name="pieces" value="Keycard Holder"><span>Keycard Holder</span></label>
+                </div>
+                <div><h3>GUEST EXPERIENCE</h3>
+                  <label><input type="checkbox" name="pieces" value="Airport Pickup Card"><span>Airport Pickup Card</span></label>
+                  <label><input type="checkbox" name="pieces" value="Itinerary"><span>Itinerary</span></label>
+                  <label><input type="checkbox" name="pieces" value="Gift Tags"><span>Gift Tags</span></label>
+                </div>
+                <div><h3>DINING & TABLE</h3>
+                  <label><input type="checkbox" name="pieces" value="Menu Cards"><span>Menu Cards</span></label>
+                  <label><input type="checkbox" name="pieces" value="Table Numbers"><span>Table Numbers</span></label>
+                  <label><input type="checkbox" name="pieces" value="Place Cards"><span>Place Cards</span></label>
+                </div>
+                <div><h3>PERSONAL DETAILS</h3>
+                  <label><input type="checkbox" name="pieces" value="Wardrobe Planner"><span>Wardrobe Planner</span></label>
+                  <label><input type="checkbox" name="pieces" value="Custom Illustrations"><span>Custom Illustrations</span></label>
+                  <label><input type="checkbox" name="pieces" value="Wedding Logo"><span>Wedding Logo</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="form-step" data-step="5">
+              <span class="step-kicker">05 / THE INVESTMENT</span>
+              <h2>What range feels comfortable?</h2>
+              <p class="muted">This simply helps us recommend the right scope.</p>
+              <div class="budget-grid">
+                <label><input type="radio" name="budget" value="₹50K or below"><span>₹50K or below</span></label>
+                <label><input type="radio" name="budget" value="₹50K–₹75K"><span>₹50K–₹75K</span></label>
+                <label><input type="radio" name="budget" value="₹75K–₹1L"><span>₹75K–₹1L</span></label>
+                <label><input type="radio" name="budget" value="₹1L–₹1.5L"><span>₹1L–₹1.5L</span></label>
+                <label><input type="radio" name="budget" value="₹1.5L–₹2L"><span>₹1.5L–₹2L</span></label>
+                <label><input type="radio" name="budget" value="₹2L–₹3L"><span>₹2L–₹3L</span></label>
+                <label><input type="radio" name="budget" value="₹3L–₹5L"><span>₹3L–₹5L</span></label>
+                <label><input type="radio" name="budget" value="₹5L+"><span>₹5L+</span></label>
+                <label><input type="radio" name="budget" value="Not sure yet"><span>I’m not sure yet</span></label>
+              </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="form-step" data-step="6">
+              <span class="step-kicker">06 / THE TIMELINE</span>
+              <h2>Tell us how you’d like to work.</h2>
+              <fieldset>
+                <legend>When would you like to begin?</legend>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="begin" value="ASAP"><span>ASAP</span></label>
+                  <label class="choice"><input type="radio" name="begin" value="Within 2 weeks"><span>Within 2 weeks</span></label>
+                  <label class="choice"><input type="radio" name="begin" value="Within a month"><span>Within a month</span></label>
+                  <label class="choice"><input type="radio" name="begin" value="1–3 months"><span>1–3 months</span></label>
+                  <label class="choice"><input type="radio" name="begin" value="3–6 months"><span>3–6 months</span></label>
+                  <label class="choice"><input type="radio" name="begin" value="6+ months"><span>6+ months</span></label>
+                  <label class="choice"><input type="radio" name="begin" value="Just exploring"><span>Just exploring</span></label>
+                </div>
+              </fieldset>
+              <fieldset><legend>How flexible is your timeline?</legend>
+                <div class="pill-grid wide">
+                  <label><input type="radio" name="flexibility" value="Very flexible"><span>Very flexible</span></label>
+                  <label><input type="radio" name="flexibility" value="Somewhat flexible"><span>Somewhat flexible</span></label>
+                  <label><input type="radio" name="flexibility" value="Fixed"><span>Fixed</span></label>
+                </div>
+              </fieldset>
+              <fieldset><legend>Invite type</legend>
+                <div class="pill-grid wide">
+                  <label><input type="radio" name="inviteType" value="Animated E-Invite"><span>Animated E-Invite</span></label>
+                  <label><input type="radio" name="inviteType" value="PDF E-Invite"><span>PDF E-Invite</span></label>
+                  <label><input type="radio" name="inviteType" value="Not sure yet"><span>Not sure yet</span></label>
+                </div>
+              </fieldset>
+              <fieldset><legend>Design direction</legend>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="direction" value="Very clear vision"><span>Very clear vision</span></label>
+                  <label class="choice"><input type="radio" name="direction" value="Some references"><span>Some references</span></label>
+                  <label class="choice"><input type="radio" name="direction" value="Need help developing vibe"><span>Need help developing vibe</span></label>
+                  <label class="choice"><input type="radio" name="direction" value="Surprise us"><span>Surprise us</span></label>
+                </div>
+              </fieldset>
+              <label>Reference links / inspiration<textarea name="references" placeholder="Paste Pinterest, Instagram, Drive or other reference links here…"></textarea></label>
+            </div>
+
+            <!-- 7 -->
+            <div class="form-step" data-step="7">
+              <span class="step-kicker">07 / HOW SHOULD IT FEEL?</span>
+              <h2>What kind of creative process sounds right?</h2>
+              <div class="big-choice">
+                <label><input type="radio" name="feel" value="NEW & BESPOKE"><span><b>NEW & BESPOKE</b><small>A completely original visual world created for you.</small></span></label>
+                <label><input type="radio" name="feel" value="EXISTING + CUSTOM"><span><b>EXISTING + CUSTOM</b><small>Start from a direction you love and personalise it.</small></span></label>
+                <label><input type="radio" name="feel" value="A LITTLE OF BOTH"><span><b>A LITTLE OF BOTH</b><small>Some familiar inspiration, with a fresh custom twist.</small></span></label>
+              </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="form-step" data-step="8">
+              <span class="step-kicker">08 / THE STORY</span>
+              <h2>Now tell us what makes your celebration yours.</h2>
+              <label>What’s your wedding vision or story?<textarea class="large" name="story" placeholder="Tell us about your story, the mood, the people, the place, or anything you want us to know…"></textarea></label>
+              <label>What’s particularly important to you?<textarea class="large" name="important" placeholder="Any must-haves, traditions, details, colours, cultural elements or personal touches?"></textarea></label>
+            </div>
+
+            <!-- 9 -->
+            <div class="form-step" data-step="9">
+              <span class="step-kicker">09 / THE WARDROBE EDIT</span>
+              <h2>Let’s plan the looks.</h2>
+              <p class="muted">If wardrobe planning is part of your project, share a few details below.</p>
+              <div class="two-col">
+                <label>Number of looks<input name="looks" type="number" min="0" placeholder="e.g. 8"></label>
+                <label>Style notes<input name="styleNotes" placeholder="Classic, contemporary, colourful…"></label>
+              </div>
+              <label>Anything else we should know?<textarea name="extra" placeholder="Your notes…"></textarea></label>
+              <div class="contact-card">
+                <h3>Almost there ♡</h3>
+                <div class="two-col">
+                  <label>Your name<input name="name" required placeholder="Full name"></label>
+                  <label>Email<input name="email" type="email" required placeholder="you@example.com"></label>
+                </div>
+                <div class="two-col">
+                  <label>Phone<input name="phone" placeholder="+91"></label>
+                  <label>Instagram handle<input name="instagram" placeholder="@yourhandle"></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-nav">
+              <button type="button" class="secondary-btn" id="backBtn">← Back</button>
+              <button type="button" class="primary-btn" id="nextBtn">Next <span>→</span></button>
+              <button type="submit" class="primary-btn" id="submitBtn" hidden>Submit Inquiry <span>♡</span></button>
+            </div>
+          </form>
+
+          <div id="success" class="success-screen">
+            <div class="success-icon">♡</div>
+            <span class="eyebrow">Inquiry received</span>
+            <h2>Thank you — let’s make it beautiful.</h2>
+            <p>Your responses have been saved in this browser. You can download a copy of your inquiry below.</p>
+            <button class="primary-btn" id="downloadBtn">Download Inquiry <span>↓</span></button>
+            <button class="text-btn" data-go="home">Back to home</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-go="home"><span>⌂</span>Home</button>
+      <button class="nav-item" data-go="inquiry"><span>⌕</span>Explore</button>
+      <button class="nav-plus" data-go="inquiry">＋</button>
+      <button class="nav-item" data-go="inquiry"><span>□</span>Bookings</button>
+      <button class="nav-item" data-go="inquiry"><span>♙</span>Profile</button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
