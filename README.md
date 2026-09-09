@@ -27,3 +27,10 @@ Open `index.html` in a browser.
 
 ## Production integration
 Replace the submit handler in `app.js` with your API, Google Sheets, Airtable, Notion, CRM, email service, or Tally endpoint.
+
+
+## Email submissions
+
+The inquiry form is configured to submit directly to Web3Forms using the Web3Forms API.
+Before deploying, replace `YOUR_WEB3FORMS_ACCESS_KEY` in `app.js` with the access key
+generated for your receiving email address at Web3Forms.

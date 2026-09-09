@@ -84,15 +84,54 @@ backBtn.addEventListener("click",()=>{
   }
 });
 
-form.addEventListener("submit",(e)=>{
+const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+
+form.addEventListener("submit", async (e)=>{
   e.preventDefault();
   if(!validateStep()) return;
+
   inquiryData = collectForm();
-  localStorage.setItem("themeplanner_submitted","true");
-  form.style.display = "none";
-  document.querySelector(".progress").style.display = "none";
-  success.classList.add("active");
-  window.scrollTo({top:0,behavior:"smooth"});
+
+  const originalText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = "Sending…";
+
+  try {
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: "New Wedding Inquiry — TheMePlanner",
+      from_name: inquiryData.name || "Website Visitor",
+      replyto: inquiryData.email || "",
+      ...inquiryData
+    };
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || "Unable to send inquiry");
+    }
+
+    localStorage.setItem("themeplanner_submitted","true");
+    form.style.display = "none";
+    document.querySelector(".progress").style.display = "none";
+    success.classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  } catch (error) {
+    console.error("Inquiry submission failed:", error);
+    alert("We couldn't send your inquiry right now. Please check your internet connection and try again.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  }
 });
 
 document.getElementById("downloadBtn").addEventListener("click",()=>{
